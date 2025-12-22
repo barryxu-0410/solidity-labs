@@ -29,3 +29,55 @@ function fStorage() public{
     xStorage[0] = 100;
 }
 }
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.21;
+contract c {
+  struct Students{
+    uint id;
+    uint score;
+  }
+  Students  public s;
+  function st() public  {
+    Students storage _st=s;
+    _st.id=10;
+    _st.score=100;
+   
+  }
+  
+}
+
+contract map {
+    mapping (uint => address) public i;
+    function p(uint _id,address _address)public {
+        i[_id]=_address;
+    }
+}
+
+contract test {
+    function iF(uint _number)public pure returns(bool){
+        if(_number==0){
+            return (true);
+        }else{
+            return(false);
+        }
+    }
+
+    function For() public pure returns(uint256){
+        uint sum=0;
+        for(uint i = 0;i<10;i++){
+            sum+=i;
+        }
+        return (sum);
+    }
+
+    function While() public pure returns(uint256){
+        uint sum =0;
+        uint i =0;
+        do{
+            sum += i;
+            i++;
+        }while(i<10);
+        return(sum);
+    }
+}
