@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.21;
+interface ICounter {
+    function count() external view returns (uint256);
+    function increment() external;
+}
+
+contract Counter is ICounter{
+    uint256 public count;
+    function increment() external override{
+        count +=1;
+    }
+}
+
+contract MyRobot{
+    function call(address _counterAddress) external {
+        ICounter counterScript = ICounter(_counterAddress);
+        counterScript.increment();
+    }
+
+}
